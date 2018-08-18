@@ -1,0 +1,24 @@
+@import '~antd/dist/antd.css';
+
+body {
+  background-color: #f9f9f9;
+}
+
+a {
+}
+
+.ant-card-head-title {
+  padding: 8px;
+}
+
+h2 {
+  margin-bottom: 0em;
+}
+
+.center {
+  text-align: center;
+}
+
+.preview-table {
+  background-color: white;
+}
