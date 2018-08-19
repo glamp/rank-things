@@ -3,6 +3,7 @@ import { Row, Col } from 'react-flexbox-grid';
 import { Link } from 'react-router-dom';
 import { Icon, Table } from 'antd';
 import { Sparklines, SparklinesLine, SparklinesReferenceLine } from 'react-sparklines';
+import Header from './Header';
 import axios from 'axios';
 
 class Home extends Component {

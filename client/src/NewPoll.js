@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-flexbox-grid';
 import { Button, Table, Input } from 'antd';
+import Header from './Header';
 import axios from 'axios';
 
 const { TextArea } = Input;
@@ -85,6 +86,7 @@ class Home extends Component {
     return (
       <div style={{ paddingTop: 40, margin: 20 }}>
         <center><h3>Create a New Poll</h3></center>
+        <Header links={[ { title: 'rank something else', href: '/' }]} />
         <hr />
         <Row>
           <Col xs={3} xsOffset={1}>
@@ -103,7 +105,7 @@ class Home extends Component {
                   <Col span={5}>
                     <Input
                       value={this.state.manualItemTitle}
-                      placeholder="title"
+                     placeholder="title"
                       onChange={evt => this.setState({ manualItemTitle: evt.target.value })}
                     />
                   </Col>
@@ -120,7 +122,6 @@ class Home extends Component {
                 </Row>
               </InputGroup>
             </div>
-            <hr />
             <div>
               <p style={{ marginBottom: 2 }}><b>{`Or import a bunch`}</b></p>
               <p>

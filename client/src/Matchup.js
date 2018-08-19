@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, Card, Col, Row } from 'antd';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Header from './Header';
 import './App.css';
 
 class Matchup extends Component {
@@ -42,17 +43,13 @@ class Matchup extends Component {
 
   render() {
     const data = this.state; 
+    const headerLinks = [
+      { title: 'view the rankings', href: '/' + this.props.pollId + '/rankings' },
+      { title: 'rank something else', href: '/' },
+    ];
     return (
       <div style={{ paddingTop: 120 }}>
-        <Row>
-          <Col span={4} offset={20}>
-            <small>
-              <Link to={'/' + this.props.pollId + '/rankings'}>{'view the rankings'}</Link>
-              {' | '}
-              <Link to="/">{'rank something else'}</Link>
-            </small>
-          </Col>
-        </Row>
+        <Header links={headerLinks} />
         <br />
         <Row gutter={16}>
           <Col span={8} offset={4}>
