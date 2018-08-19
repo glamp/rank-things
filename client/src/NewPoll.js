@@ -24,7 +24,7 @@ class Home extends Component {
     axios.post('/polls', data)
       .then(response => {
         console.log(response);
-        window.location.redirect('/');
+        window.location.pathname = '/';
       })
   }
 
