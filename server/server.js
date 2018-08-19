@@ -7,6 +7,8 @@ const _ = require('lodash');
 const db = require('./db');
 const elo = require('./elo');
 
+require('./keep-awake');
+
 const app = express();
 app.use(logger('dev'));
 app.use(bodyParser.json());
