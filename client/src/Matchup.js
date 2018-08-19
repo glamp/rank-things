@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Card, Col, Row } from 'antd';
 import { Link } from 'react-router-dom';
+import Mousetrap from 'mousetrap';
 import axios from 'axios';
 import Header from './Header';
 import './App.css';
@@ -10,6 +11,14 @@ class Matchup extends Component {
 
   componentDidMount() {
     this.getMatchup();
+
+    // hotkeys
+    Mousetrap.bind('left', () => {
+      this.vote(this.state.option1.id, this.state.option2.id);
+    });
+    Mousetrap.bind('right', () => {
+      this.vote(this.state.option2.id, this.state.option1.id);
+    });
   }
 
   getMatchup = () => {
@@ -28,7 +37,6 @@ class Matchup extends Component {
     axios.post('/matchup/' + this.props.pollId, { winnerId, loserId })
       .then((response) => {
         // handle success
-        console.log(response);
         this.getMatchup();
       })
       .catch((error) => {
@@ -47,26 +55,29 @@ class Matchup extends Component {
       { title: 'view the rankings', href: '/' + this.props.pollId + '/rankings' },
       { title: 'rank something else', href: '/' },
     ];
+    const cardHeight = 250;
     return (
       <div style={{ paddingTop: 120 }}>
         <Header links={headerLinks} />
         <br />
         <Row gutter={16}>
           <Col span={8} offset={4}>
-            <Card title={<h2>{data.option1.title}</h2>} bordered={true} className="center">
+            <Card style={{ height: cardHeight }} title={<h2>{data.option1.title}</h2>} bordered={true} className="center">
               <h3>{data.option1.description}</h3>
               <br />
               <Button onClick={() => this.vote(data.option1.id, data.option2.id)} type="primary">Vote</Button>
             </Card>
           </Col>
           <Col span={8}>
-            <Card title={<h2>{data.option2.title}</h2>} bordered={true} className="center">
+            <Card style={{ height: cardHeight }} title={<h2>{data.option2.title}</h2>} bordered={true} className="center">
               <h3>{data.option2.description}</h3>
               <br />
               <Button onClick={() => this.vote(data.option2.id, data.option1.id)} type="primary">Vote</Button>
             </Card>
           </Col>
         </Row>
+        <br />
+        <p className="center">Pro Tip: Use the left and right arrow keys to vote!</p>
       </div>
     );
   }
