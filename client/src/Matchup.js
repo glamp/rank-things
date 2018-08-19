@@ -49,7 +49,7 @@ class Matchup extends Component {
     ];
     return (
       <div style={{ paddingTop: 120 }}>
-        <Header links={headerLinks} />
+        <Header links={headerLinks} share />
         <br />
         <Row gutter={16}>
           <Col span={8} offset={4}>
