@@ -43,11 +43,11 @@ class Home extends Component {
 
     let lines=csv.split("\n");
     let result = [];
-    let headers=lines[0].split(",");
+    let headers=lines[0].split("\t");
 
     for(let i=1;i<lines.length;i++){
       let obj = {};
-      let currentline=lines[i].split(",");
+      let currentline=lines[i].split("\t");
       for(let j=0;j<headers.length;j++){
         obj[headers[j]] = currentline[j];
       }
@@ -76,10 +76,10 @@ class Home extends Component {
     ];
 
     const placeholderForCSV = [
-      "title,description",
-      "red,red is the color of love",
-      "blue,blue is the color of sadness",
-      "green,green is the color of life"
+      "title  description",
+      "red  red is the color of love",
+      "blue blue is the color of sadness",
+      "green  green is the color of life"
     ].join('\n');
 
     return (
@@ -122,7 +122,12 @@ class Home extends Component {
             </div>
             <hr />
             <div>
-              <p><b>Or import a bunch</b></p>
+              <p style={{ marginBottom: 2 }}><b>{`Or import a bunch`}</b></p>
+              <p>
+                <small>
+                  Paste in a tab delimited file. Check out the <a target="_blank" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRMLtN9EnA5L-c7BfHuEZH_xlQuFzaWEcxLLZXekf3V67a1oAr7jZ5r7VmVnw6kgQiN6WteyKfAJhSk/pub?output=xlsx">Excel</a> or <a target="_blank" href="https://docs.google.com/spreadsheets/d/1EsR4Mpm6qwrS8o5p12bg1rMgUo2CJ2mc3kk3HgoCkM0/edit?usp=sharing">Google Sheets</a> templates.
+                </small>
+              </p>
               <TextArea
                 placeholder={placeholderForCSV}
                 rows={20}
