@@ -1,5 +1,6 @@
 const express = require('express');
 const logger = require('morgan');
+const path = require('path');
 const bodyParser = require('body-parser');
 const shortid = require('shortid');
 const _ = require('lodash');
@@ -9,6 +10,7 @@ const elo = require('./elo');
 const app = express();
 app.use(logger('dev'));
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 app.get('/', (req, res) => {
   res.send('hi');
@@ -104,4 +106,4 @@ app.post('/matchup/:poll_id', (req, res) => {
     });
 });
 
-app.listen(3001, () => console.log('servering :3001'))
+app.listen(process.env.PORT || 3001, () => console.log('servering :3001'))
