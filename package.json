@@ -4,9 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node server.js",
+    "start": "node server/server.js",
     "start:dev": "concurrently \"yarn start:server\" \"yarn start:client\"",
-    "start:server": "nodemon server.js",
+    "start:server": "nodemon server/server.js",
     "start:client": "cd client && yarn start",
     "ngrok": "ngrok http --host-header=rewrite 3000"
   },
