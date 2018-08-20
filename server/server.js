@@ -108,4 +108,8 @@ app.post('/matchup/:poll_id', (req, res) => {
     });
 });
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+
 app.listen(process.env.PORT || 3001, () => console.log('servering :3001'))
