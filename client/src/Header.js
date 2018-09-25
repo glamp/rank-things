@@ -10,11 +10,12 @@ export default ({ title, links }) => (
           return (
             <span>
               <Link to={link.href}>{link.title}</Link>
-              { idx+1 !== links.length ? ' | ' : '' }
+              {' | '}
             </span>
           );
         })
       }
+      <Link to="/how-does-this-work">{"how does this work?"}</Link>
     </small>
   </div>
 );

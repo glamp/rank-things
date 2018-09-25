@@ -86,12 +86,7 @@ class Home extends Component {
     return (
       <div style={{ paddingTop: 120 }}>
         <div className="center">
-          <h3>Rankings</h3>
-          <small>
-            <Link to={'/' + this.props.pollId}>{'rank more matchups'}</Link>
-            {' | '}
-            <Link to="/">{'rank something else'}</Link>
-          </small>
+          <Header links={[ { title: 'rank more matchups', href: '/' + this.props.pollId }, { title: 'rank something else', href: '/' } ]} title="Rankings" />
           <hr />
         </div>
         <div className="center">

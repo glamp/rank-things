@@ -26,8 +26,8 @@ class Matchup extends Component {
       .then(response => {
         const data = response.data.data;
         this.setState({
-          option1: data[0],
-          option2: data[1],
+          option1: data[0] || {},
+          option2: data[1] || {},
         });
       });
 
