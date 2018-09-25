@@ -2,9 +2,7 @@
 
 body {
   background-color: #f9f9f9;
-}
-
-a {
+  overflow-x: hidden;
 }
 
 .ant-card-head-title {
@@ -19,6 +17,14 @@ h2 {
   text-align: center;
 }
 
+.right {
+  text-align: right;
+}
+
+.left {
+  text-align: left;
+}
+
 .preview-table {
   background-color: white;
 }
@@ -27,3 +33,4 @@ h2 {
 {
   padding: 0px;
 }
+

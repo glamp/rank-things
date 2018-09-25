@@ -29,7 +29,6 @@ module.exports = (matchups) => {
     };
   });
   let results = _.toPairs(players).map(item => {
-    console.log(item);
     return {
       rankable_id: item[0],
       elo: item[1].elo,

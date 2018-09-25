@@ -57,20 +57,20 @@ class Matchup extends Component {
     ];
     const cardHeight = 250;
     return (
-      <div style={{ paddingTop: 120 }}>
-        <Header links={headerLinks} />
+      <div className="center" style={{ paddingTop: 120 }}>
+        <Header links={headerLinks} title={this.state.option1.poll_name} />
         <br />
         <Row gutter={16}>
-          <Col span={8} offset={4}>
+          <Col md={{ span: 8, offset: 4 }}>
             <Card style={{ height: cardHeight }} title={<h2>{data.option1.title}</h2>} bordered={true} className="center">
-              <h3>{data.option1.description}</h3>
+              <p>{data.option1.description}</p>
               <br />
               <Button onClick={() => this.vote(data.option1.id, data.option2.id)} type="primary">Vote</Button>
             </Card>
           </Col>
-          <Col span={8}>
+          <Col md={8}>
             <Card style={{ height: cardHeight }} title={<h2>{data.option2.title}</h2>} bordered={true} className="center">
-              <h3>{data.option2.description}</h3>
+              <p>{data.option2.description}</p>
               <br />
               <Button onClick={() => this.vote(data.option2.id, data.option1.id)} type="primary">Vote</Button>
             </Card>

@@ -42,13 +42,16 @@ class Home extends Component {
 
   csvJSON(csv){
 
-    let lines=csv.split("\n");
+    let lines = csv.split("\n");
     let result = [];
-    let headers=lines[0].split("\t");
+    let headers = ['title', 'description']; // lines[0].split("\t");
 
-    for(let i=1;i<lines.length;i++){
+    for(let i=0;i<lines.length;i++){
       let obj = {};
-      let currentline=lines[i].split("\t");
+      let currentline = lines[i].split("\t");
+      if (i===0 && currentline[0]==='title') {
+        continue
+      }
       for(let j=0;j<headers.length;j++){
         obj[headers[j]] = currentline[j];
       }

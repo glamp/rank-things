@@ -21,6 +21,7 @@ class Home extends Component {
 
   render() {
     const columns = [
+      /*
       {
         title: '',
         key: 'eloHistory',
@@ -36,10 +37,23 @@ class Home extends Component {
           return <Icon type="minus" />;
         }
       },
+      */
       {
         title: 'Rank',
         key: 'rank',
         dataIndex: 'rank',
+        render: item => {
+          if (item===1) {
+            return <span><Icon style={{ color: 'gold' }} type="trophy" theme="filled" />{' '}{item}</span>
+          }
+          if (item===2) {
+            return <span><Icon style={{ color: 'silver' }} type="trophy" theme="filled" />{' '}{item}</span>
+          }
+          if (item===3) {
+            return <span><Icon style={{ color: '#cd7f32' }} type="trophy" theme="filled" />{' '}{item}</span>
+          }
+          return <span style={{ marginLeft: 18 }}>{' '}{item}</span>
+        }
       },
       {
         title: 'Title',
@@ -69,22 +83,16 @@ class Home extends Component {
     return (
       <div style={{ paddingTop: 120 }}>
         <div className="center">
-          <Row>
-            <Col xs={4} xsOffset={4}>
-              <h3>Rankings</h3>
-            </Col>
-            <Col xs={2} xsOffset={2}>
-              <small>
-                <Link to={'/' + this.props.pollId}>{'rank more matchups'}</Link>
-                {' | '}
-                <Link to="/">{'rank something else'}</Link>
-              </small>
-            </Col>
-          </Row>
+          <h3>Rankings</h3>
+          <small>
+            <Link to={'/' + this.props.pollId}>{'rank more matchups'}</Link>
+            {' | '}
+            <Link to="/">{'rank something else'}</Link>
+          </small>
           <hr />
         </div>
         <Row>
-          <Col xs={4} xsOffset={4}>
+          <Col lg={4} lgOffset={4}>
             <Table
               size="small"
               pagination={false}

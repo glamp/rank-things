@@ -77,6 +77,8 @@ app.post('/polls', (req, res) => {
 
 app.get('/matchup/:poll_id', (req, res) => {
   db('rankables')
+    .select('rankables.*', 'polls.name as poll_name')
+    .innerJoin('polls', 'polls.id', '=', 'rankables.poll_id')
     .where('poll_id', '=', req.params.poll_id)
     .orderByRaw('RANDOM()')
     .limit(2)
