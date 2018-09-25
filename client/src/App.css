@@ -5,10 +5,6 @@ body {
   overflow-x: hidden;
 }
 
-.ant-card-head-title {
-  padding: 8px;
-}
-
 h2 {
   margin-bottom: 0em;
 }
@@ -34,3 +30,18 @@ h2 {
   padding: 0px;
 }
 
+
+.matchup-title {
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 5px;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 10px;
+  left: 0px;
+  right: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80px;
+}

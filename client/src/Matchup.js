@@ -62,17 +62,17 @@ class Matchup extends Component {
         <br />
         <Row gutter={16}>
           <Col md={{ span: 8, offset: 4 }}>
-            <Card style={{ height: cardHeight }} title={<h3>{data.option1.title}</h3>} bordered={true} className="center">
+            <Card style={{ height: cardHeight }} bordered={true} className="center">
+              <h4 className="matchup-title">{data.option1.title}</h4>
               <p>{data.option1.description}</p>
-              <br />
-              <Button onClick={() => this.vote(data.option1.id, data.option2.id)} type="primary">Vote</Button>
+              <Button className="bottom" onClick={() => this.vote(data.option1.id, data.option2.id)} type="primary">Vote</Button>
             </Card>
           </Col>
           <Col md={8}>
-            <Card style={{ height: cardHeight }} title={<h3>{data.option2.title}</h3>} bordered={true} className="center">
+            <Card style={{ height: cardHeight }} bordered={true} className="center">
+              <h4 className="matchup-title">{data.option2.title}</h4>
               <p>{data.option2.description}</p>
-              <br />
-              <Button onClick={() => this.vote(data.option2.id, data.option1.id)} type="primary">Vote</Button>
+              <Button className="bottom" onClick={() => this.vote(data.option2.id, data.option1.id)} type="primary">Vote</Button>
             </Card>
           </Col>
         </Row>
