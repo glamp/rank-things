@@ -80,6 +80,9 @@ class Home extends Component {
         }
       },
     ];
+
+    let padding = (window.innerWidth - 800) / 2;
+
     return (
       <div style={{ paddingTop: 120 }}>
         <div className="center">
@@ -91,16 +94,17 @@ class Home extends Component {
           </small>
           <hr />
         </div>
-        <Row>
-          <Col lg={4} lgOffset={4}>
+        <div className="center">
+          <div style={{ paddingLeft: padding, paddingRight: padding }}>
             <Table
               size="small"
               pagination={false}
               dataSource={this.state.rankings}
               columns={columns}
+              style={{ width: 800 }}
             />
-          </Col>
-        </Row>
+          </div>
+        </div>
       </div>
     );
   }
